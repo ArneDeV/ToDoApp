@@ -20,15 +20,17 @@ class _PageSwitcherState extends State<PageSwitcher> {
           return Scaffold(
             backgroundColor: Colors.grey.shade300,
             bottomNavigationBar: BottomNavBar(),
-            appBar: AppBar(
-              title: Text(
-                'Arne\'s Taken',
-                style: TextStyle(color: myColors[UNSELECTED]),
-              ),
-              elevation: 0,
-              backgroundColor: myColors[SECONDARY],
-              centerTitle: true,
-            ),
+            // ! Appbar verwijderd, om te kijken naar effect op design.
+            // TODO: Remove Appbar als design het toelaat
+            // appBar: AppBar(
+            //   title: Text(
+            //     'Arne\'s Taken',
+            //     style: TextStyle(color: myColors[UNSELECTED]),
+            //   ),
+            //   elevation: 0,
+            //   backgroundColor: myColors[SECONDARY],
+            //   centerTitle: true,
+            // ),
             // ! Content van app
             body: state.currentPage,
             //* Add button voor todo

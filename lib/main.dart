@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import './page_switcher.dart';
 
@@ -23,11 +24,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         accentColor: myColors[PRIMARY],
-        textTheme: TextTheme(
-          headline2: TextStyle(fontSize: 40),
-        ),
+        textTheme: GoogleFonts.varelaRoundTextTheme(Theme.of(context).textTheme),
       ),
       //* Navigator voor bottom nav bar
       routes: {
