@@ -1,16 +1,24 @@
-# todo_v2
+# Arne's Persoonlijke ToDo App
 
-A new Flutter project.
+Persoonlijke todo app that contains all features I like from other todo apps, but with a design a like and with the ability to combine it to one app.
+The plan is to keep expanding the app until it is complete
 
-## Getting Started
+## What am I still working on?
 
-This project is a starting point for a Flutter application.
+This is a list the parts of the app I am still working on, spoiler alert: Most of the work for the app hasn't been done.
+This list will grow when I get new ideas.
 
-A few resources to get you started if this is your first Flutter project:
+- Task menu (Page that shows the categories)
+- Add task category page
+- View tasks in a specific category page
+- Add date that task had to be completed and Today page
+- Add important task page and system
+- Add stats to see productivity
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## What has been completed
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Parts of the app wich are complete, the idea of this section is that it grow fast (Which means the app is growing).
+
+- Design mockup/idea
+- Feature list and project planning
+- Bottom navBar with FAB to add task/category.
