@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import 'package:todo_v2/widgets/task_card.dart';
+import '../database_helper.dart';
+import '../main.dart';
+import '../states/navBarProvider.dart';
+import '../widgets/task_card.dart';
+import 'task_page.dart';
 
-class TaskListPage extends StatelessWidget {
+class TaskListPage extends StatefulWidget {
   static const routeName = '/taken';
+
+  @override
+  _TaskListPageState createState() => _TaskListPageState();
+}
+
+class _TaskListPageState extends State<TaskListPage> {
+  DataBaseHelper _dbHelper = DataBaseHelper();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+        padding: EdgeInsets.only(top: 40, left: 30, right: 30),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,17 +33,45 @@ class TaskListPage extends StatelessWidget {
                 style: TextStyle(fontSize: 38),
               ),
             ),
-            TaskCard(
-              title: 'Universiteit',
-              desc: 'Taken en planning die verband houden met studies aan de universiteit.',
-              color: Colors.orange[400],
+            Expanded(
+              // ! Toon alle taken
+              child: Consumer<BotNavBarProvider>(
+                builder: (ctx, state, _) {
+                  return FutureBuilder(
+                    initialData: [],
+                    future: _dbHelper.getTasks(),
+                    builder: (context, snapshot) {
+                      return ListView.builder(
+                        physics: BouncingScrollPhysics(),
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              // print("Pressed a task");
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TaskPage(task: snapshot.data[index]),
+                                ),
+                              ).then(
+                                (value) {
+                                  setState(() {});
+                                },
+                              );
+                            },
+                            child: TaskCard(
+                              title: snapshot.data[index].title,
+                              desc: snapshot.data[index].desc,
+                              color: getColor(snapshot.data[index].color),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  );
+                },
+              ),
             ),
-            TaskCard(
-              title: 'Scouts',
-              desc: 'Taken gerelateerd aan scouts, bijvoorbeeld zaken die ik niet mag vergeten.',
-              color: Colors.red[600],
-            ),
-            TaskCard(),
           ],
         ),
       ),

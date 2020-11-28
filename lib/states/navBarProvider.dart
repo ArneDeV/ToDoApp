@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../pages/task_list_page.dart';
-import '../pages/vandaag_page.dart';
 import '../pages/belangrijk_page.dart';
 import '../pages/stats_page.dart';
+import '../pages/task_list_page.dart';
+import '../pages/vandaag_page.dart';
 
 class BotNavBarProvider with ChangeNotifier {
   int _selectedIndex = 0;

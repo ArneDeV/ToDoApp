@@ -1,23 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import './page_switcher.dart';
-
-import './pages/task_list_page.dart';
-import './pages/vandaag_page.dart';
-import './pages/belangrijk_page.dart';
-import './pages/stats_page.dart';
+import 'page_switcher.dart';
 
 void main() => runApp(MyApp());
 
 const PRIMARY = "primary";
 const SECONDARY = "secondary";
 const UNSELECTED = "unselected";
+const ORANGE = 'orange';
+const RED = 'red';
+const GREEN = 'green';
+
+Color getColor(String color) {
+  if (color == 'oranje') {
+    return myColors[ORANGE];
+  } else if (color == 'rood') {
+    return myColors[RED];
+  } else if (color == 'groen') {
+    return myColors[GREEN];
+  } else {
+    return myColors[PRIMARY];
+  }
+}
 
 Map myColors = {
   PRIMARY: Color.fromRGBO(75, 119, 242, 1),
   SECONDARY: Colors.grey.shade300,
+  ORANGE: Colors.orange[500],
   UNSELECTED: Colors.black54,
+  RED: Colors.red[800],
+  GREEN: Colors.green[800],
 };
 
 class MyApp extends StatelessWidget {
@@ -29,13 +42,6 @@ class MyApp extends StatelessWidget {
         accentColor: myColors[PRIMARY],
         textTheme: GoogleFonts.varelaRoundTextTheme(Theme.of(context).textTheme),
       ),
-      //* Navigator voor bottom nav bar
-      routes: {
-        TaskListPage.routeName: (context) => TaskListPage(),
-        VandaagPage.routeName: (context) => VandaagPage(),
-        BelangrijkPage.routeName: (context) => BelangrijkPage(),
-        StatsPage.routeName: (context) => StatsPage(),
-      },
       home: PageSwitcher(),
     );
   }

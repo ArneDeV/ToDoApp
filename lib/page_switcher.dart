@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import './main.dart';
-import './widgets/navigation.dart';
-import './states/navBarProvider.dart';
+import 'pages/task_page.dart';
+import 'states/navBarProvider.dart';
+import 'widgets/navigation.dart';
 
 class PageSwitcher extends StatefulWidget {
   @override
@@ -20,23 +20,21 @@ class _PageSwitcherState extends State<PageSwitcher> {
           return Scaffold(
             backgroundColor: Colors.grey.shade300,
             bottomNavigationBar: BottomNavBar(),
-            // ! Appbar verwijderd, om te kijken naar effect op design.
-            // TODO: Remove Appbar als design het toelaat
-            // appBar: AppBar(
-            //   title: Text(
-            //     'Arne\'s Taken',
-            //     style: TextStyle(color: myColors[UNSELECTED]),
-            //   ),
-            //   elevation: 0,
-            //   backgroundColor: myColors[SECONDARY],
-            //   centerTitle: true,
-            // ),
             // ! Content van app
             body: state.currentPage,
             //* Add button voor todo
             floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
             floatingActionButton: FloatingActionButton(
-              onPressed: () => print('Hello World'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TaskPage(task: null),
+                  ),
+                ).then((value) {
+                  state.changeIndex(0);
+                });
+              },
               child: Icon(Icons.add),
               elevation: 3,
             ),
