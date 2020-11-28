@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../states/navBarProvider.dart';
 import '../main.dart';
+import '../states/navBarProvider.dart';
 
 class BottomNavBar extends StatefulWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:todo_v2/main.dart';
+import '../main.dart';
 
 // Widget voor verschillende app categorien
 class TaskCard extends StatelessWidget {
