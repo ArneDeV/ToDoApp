@@ -8,9 +8,6 @@ The plan is to keep expanding the app until it is complete
 This is a list the parts of the app I am still working on, spoiler alert: Most of the work for the app hasn't been done.
 This list will grow when I get new ideas.
 
-- Task menu (Page that shows the categories)
-- Add task category page
-- View tasks in a specific category page
 - Add date that task had to be completed and Today page
 - Add important task page and system
 - Add stats to see productivity
@@ -22,3 +19,6 @@ Parts of the app wich are complete, the idea of this section is that it grow fas
 - Design mockup/idea
 - Feature list and project planning
 - Bottom navBar with FAB to add task/category.
+- Task menu (Page that shows the categories)
+- Add task category page
+- View tasks in a specific category page
